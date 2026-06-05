@@ -133,14 +133,26 @@ export default function Home() {
 
   };
 
-  const handleBracket = () => {
-  if (openBracket) {
+//  
+const handleBracket = () => {
+
+  const openCount = (result.match(/\(/g) || []).length;
+  const closeCount = (result.match(/\)/g) || []).length;
+
+  const lastChar = result.slice(-1);
+
+  if (
+    result === "" ||
+    "+-*/^(".includes(lastChar)
+  ) {
     setResult(prev => prev + "(");
-  } else {
+  }
+  else if (openCount > closeCount) {
     setResult(prev => prev + ")");
   }
-
-  setOpenBracket(!openBracket);
+  else {
+    setResult(prev => prev + "(");
+  }
 };
   return (
     <div>
