@@ -20,7 +20,7 @@ export default function Home() {
 
     const result1 = await calculatenumbers(result);
 
-    if (result1 === true) {
+    if (result1 === true ) {
       setAnimation(true);
 
       setTimeout(() => {

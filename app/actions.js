@@ -41,6 +41,10 @@ export async function calculatenumbers(result) {
             return true;
         }
 
+        if(ans == "NaN"){
+            return true;
+        }
+
         return ans;
 
 
