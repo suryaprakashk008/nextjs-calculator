@@ -2,13 +2,10 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-import { addnumbers, subnumbers, multiplynumbers, dividnumbers, clearresult, calculatenumbers } from "./actions"
+import {clearresult, calculatenumbers } from "./actions"
 
 export default function Home() {
 
-  // const [valuex, setValuex] = useState("");
-
-  // const [valuey, setValuey] = useState("");
 
   const [result, setResult] = useState("");
 
@@ -16,84 +13,6 @@ export default function Home() {
 
   const [animation, setAnimation] = useState(false);
 
-  const [openBracket, setOpenBracket] = useState(true);
-
-
-  // const [success, setSuccess] = useState(false);
-
-  // useEffect(() => {
-
-  //   if (result !== "") {
-
-  //     setSuccess(true);
-
-  //     const timer = setTimeout(() => {
-  //       setSuccess(false);
-  //     }, 1000);
-
-  //     return () => clearTimeout(timer);
-  //   }
-
-  // }, [result]);
-
-
-
-  // const addnum = async () => {
-
-  //   if (!valuex || !valuey) return;
-  //   setLoading(true);
-
-  //   const result1 = await addnumbers(valuex, valuey);
-
-  //   setResult(result1);
-  //   // setValuex("");
-  //   // setValuey("");
-  //   setLoading(false);
-
-
-  // };
-  // const subnum = async () => {
-
-  //   if (!valuex || !valuey) return;
-  //   setLoading(true);
-
-  //   const result1 = await subnumbers(valuex, valuey);
-
-  //   setResult(result1);
-  //   // setValuex("");
-  //   // setValuey("");
-  //   setLoading(false);
-
-
-  // };
-  // const multiplynum = async () => {
-
-  //   if (!valuex || !valuey) return;
-  //   setLoading(true);
-
-  //   const result1 = await multiplynumbers(valuex, valuey);
-
-  //   setResult(result1);
-  //   // setValuex("");
-  //   // setValuey("");
-  //   setLoading(false);
-
-
-  // };
-  // const divnum = async () => {
-
-  //   if (!valuex || !valuey) return;
-  //   setLoading(true);
-
-  //   const result1 = await dividnumbers(valuex, valuey);
-
-  //   setResult(result1);
-  //   // setValuex("");
-  //   // setValuey("");
-  //   setLoading(false);
-
-
-  // };
 
   const calculate = async () => {
 
@@ -133,47 +52,35 @@ export default function Home() {
 
   };
 
-//  
-const handleBracket = () => {
+  //  
+  const handleBracket = () => {
 
-  const openCount = (result.match(/\(/g) || []).length;
-  const closeCount = (result.match(/\)/g) || []).length;
+    const openCount = (result.match(/\(/g) || []).length;
+    const closeCount = (result.match(/\)/g) || []).length;
 
-  const lastChar = result.slice(-1);
+    const lastChar = result.slice(-1);
 
-  if (
-    result === "" ||
-    "+-*/^(".includes(lastChar)
-  ) {
-    setResult(prev => prev + "(");
-  }
-  else if (openCount > closeCount) {
-    setResult(prev => prev + ")");
-  }
-  else {
-    setResult(prev => prev + "(");
-  }
-};
+    if (
+      result === "" ||
+      "+-*/^(".includes(lastChar)
+    ) {
+      setResult(prev => prev + "(");
+    }
+    else if (openCount > closeCount) {
+      setResult(prev => prev + ")");
+    }
+    else {
+      setResult(prev => prev + "(");
+    }
+  };
   return (
     <div>
 
       <h1 className="flex justify-center items-center mb-10 text-2xl font-bold">Calculator</h1>
-      {/* <input className="border-2 border-white px-3 py-2 ml-4"
-        value={valuex}
-        placeholder="Enter the value"
-        onChange={(e) => setValuex(e.target.value)}
-      />
-      <br />
-      <br />
-      <input className="border-2 border-white px-3 p-2 ml-4"
-        value={valuey}
-        placeholder="Enter the value"
-        onChange={(e) => setValuey(e.target.value)}
-      /> */}
 
       <br />
       <br />
-      {/* <label className="ml-47 text-2xl font-bold">Display-result</label> */}
+
       <br />
 
       <div className="flex justify-center items-center">
@@ -205,11 +112,11 @@ const handleBracket = () => {
               <td
               ><button
                 className="hover:bg-gray-700 active:scale-95 transition-all  duration-150 text-xl w-full h-full border border-white  bg-green-500  py-2"
-                 onClick={handleBracket}
+                onClick={handleBracket}
               >()
                 </button>
               </td>
-              
+
               <td><button
                 className="hover:bg-gray-700 active:scale-95 transition-all  duration-150 text-xl w-full h-full border border-white  bg-green-500  py-2"
                 onClick={() => handleClick("/")}
@@ -265,9 +172,9 @@ const handleBracket = () => {
 
             <tr>
               <td><button className="hover:bg-mauve-600 active:scale-95 transition-all  duration-150 text-xl w-full h-full border border-white py-2" onClick={() => handleClick("0")}>0</button></td>
-               <td><button className="hover:bg-mauve-600 active:scale-95 transition-all  duration-150 text-xl w-full h-full border border-white py-2" onClick={() => handleClick(".")}>.</button></td>
+              <td><button className="hover:bg-mauve-600 active:scale-95 transition-all  duration-150 text-xl w-full h-full border border-white py-2" onClick={() => handleClick(".")}>.</button></td>
               <td><button className="hover:bg-mauve-600 active:scale-95 transition-all  duration-150 text-xl w-full h-full border border-white py-2 text-orange-400" onClick={() => handleClick("^")}>^</button></td>
-             
+
               <td><button
                 className="
                              hover:bg-sky-700
@@ -283,13 +190,6 @@ const handleBracket = () => {
         </table>
       </div>
       <br />
-
-      {/* <input
-        value={result}
-        readOnly
-        className={`border-2 border-white px-3 p-2  ${success ? "bg-green-300" : ""
-          } transition-all duration-500`}
-      /> */}
       {loading && (
         <h2>calculating...</h2>
       )}

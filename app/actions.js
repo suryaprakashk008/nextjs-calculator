@@ -1,20 +1,20 @@
 "use server"
 
-export async function addnumbers(valuex, valuey) {
-    return Number(valuex) + Number(valuey);
-}
+// export async function addnumbers(valuex, valuey) {
+//     return Number(valuex) + Number(valuey);
+// }
 
-export async function subnumbers(valuex, valuey) {
-    return Number(valuex) - Number(valuey);
-}
+// export async function subnumbers(valuex, valuey) {
+//     return Number(valuex) - Number(valuey);
+// }
 
-export async function multiplynumbers(valuex, valuey) {
-    return Number(valuex) * Number(valuey);
-}
+// export async function multiplynumbers(valuex, valuey) {
+//     return Number(valuex) * Number(valuey);
+// }
 
-export async function dividnumbers(valuex, valuey) {
-    return Number(valuex) / Number(valuey);
-}
+// export async function dividnumbers(valuex, valuey) {
+//     return Number(valuex) / Number(valuey);
+//}
 
 export async function clearresult() {
     return "";
