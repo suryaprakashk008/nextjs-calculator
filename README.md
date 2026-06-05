@@ -9,7 +9,6 @@ A calculator built using Next.js and Tailwind CSS.
 - Multiplication
 - Division
 - Power (^)
-- Percentage (%)
 - Parentheses support
 - Divide by zero handling
 
